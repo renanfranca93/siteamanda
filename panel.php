@@ -2,8 +2,7 @@
 include 'assets/services/conn.php';
 session_start();
 
-if ($_SESSION["reference"]!=="teacher") {
-
+if ($_SESSION["role"]!=1) {
     header("Location: index.php"); 
 }
 
@@ -12,71 +11,71 @@ $language = $_SESSION["language"];
 $range = $_SESSION["range"];
 
 //TEACHER KEY
-$teacher_sql = "SELECT id, key_lg FROM keys_lg WHERE reference = 'teacher'";
-$teacher_exec = mysqli_query($con, $teacher_sql);
-$teacher = mysqli_fetch_array($teacher_exec, MYSQLI_ASSOC);
+// $teacher_sql = "SELECT id, key_lg FROM keys_lg WHERE reference = 'teacher'";
+// $teacher_exec = mysqli_query($con, $teacher_sql);
+// $teacher = mysqli_fetch_array($teacher_exec, MYSQLI_ASSOC);
 
 
 //INGLES KEYS
-$a1_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'a1' AND language = 'en'";
-$a1_en_exec = mysqli_query($con, $a1_en_sql);
-$a1_en = mysqli_fetch_array($a1_en_exec, MYSQLI_ASSOC);
+// $a1_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'a1' AND language = 'en'";
+// $a1_en_exec = mysqli_query($con, $a1_en_sql);
+// $a1_en = mysqli_fetch_array($a1_en_exec, MYSQLI_ASSOC);
 
-$a2_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'a2' AND language = 'en'";
-$a2_en_exec = mysqli_query($con, $a2_en_sql);
-$a2_en = mysqli_fetch_array($a2_en_exec, MYSQLI_ASSOC);
+// $a2_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'a2' AND language = 'en'";
+// $a2_en_exec = mysqli_query($con, $a2_en_sql);
+// $a2_en = mysqli_fetch_array($a2_en_exec, MYSQLI_ASSOC);
 
-$b1_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'b1' AND language = 'en'";
-$b1_en_exec = mysqli_query($con, $b1_en_sql);
-$b1_en = mysqli_fetch_array($b1_en_exec, MYSQLI_ASSOC);
+// $b1_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'b1' AND language = 'en'";
+// $b1_en_exec = mysqli_query($con, $b1_en_sql);
+// $b1_en = mysqli_fetch_array($b1_en_exec, MYSQLI_ASSOC);
 
-$b2_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'b2' AND language = 'en'";
-$b2_en_exec = mysqli_query($con, $b2_en_sql);
-$b2_en = mysqli_fetch_array($b2_en_exec, MYSQLI_ASSOC);
+// $b2_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'b2' AND language = 'en'";
+// $b2_en_exec = mysqli_query($con, $b2_en_sql);
+// $b2_en = mysqli_fetch_array($b2_en_exec, MYSQLI_ASSOC);
 
-$c1_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'c1' AND language = 'en'";
-$c1_en_exec = mysqli_query($con, $c1_en_sql);
-$c1_en = mysqli_fetch_array($c1_en_exec, MYSQLI_ASSOC);
+// $c1_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'c1' AND language = 'en'";
+// $c1_en_exec = mysqli_query($con, $c1_en_sql);
+// $c1_en = mysqli_fetch_array($c1_en_exec, MYSQLI_ASSOC);
 
-$c2_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'c2' AND language = 'en'";
-$c2_en_exec = mysqli_query($con, $c2_en_sql);
-$c2_en = mysqli_fetch_array($c2_en_exec, MYSQLI_ASSOC);
+// $c2_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'c2' AND language = 'en'";
+// $c2_en_exec = mysqli_query($con, $c2_en_sql);
+// $c2_en = mysqli_fetch_array($c2_en_exec, MYSQLI_ASSOC);
 
 
 //CHINES KEYS
-$a1_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'a1' AND language = 'cn'";
-$a1_cn_exec = mysqli_query($con, $a1_cn_sql);
-$a1_cn = mysqli_fetch_array($a1_cn_exec, MYSQLI_ASSOC);
+// $a1_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'a1' AND language = 'cn'";
+// $a1_cn_exec = mysqli_query($con, $a1_cn_sql);
+// $a1_cn = mysqli_fetch_array($a1_cn_exec, MYSQLI_ASSOC);
 
-$a2_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'a2' AND language = 'cn'";
-$a2_cn_exec = mysqli_query($con, $a2_cn_sql);
-$a2_cn = mysqli_fetch_array($a2_cn_exec, MYSQLI_ASSOC);
+// $a2_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'a2' AND language = 'cn'";
+// $a2_cn_exec = mysqli_query($con, $a2_cn_sql);
+// $a2_cn = mysqli_fetch_array($a2_cn_exec, MYSQLI_ASSOC);
 
-$b1_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'b1' AND language = 'cn'";
-$b1_cn_exec = mysqli_query($con, $b1_cn_sql);
-$b1_cn = mysqli_fetch_array($b1_cn_exec, MYSQLI_ASSOC);
+// $b1_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'b1' AND language = 'cn'";
+// $b1_cn_exec = mysqli_query($con, $b1_cn_sql);
+// $b1_cn = mysqli_fetch_array($b1_cn_exec, MYSQLI_ASSOC);
 
-$b2_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'b2' AND language = 'cn'";
-$b2_cn_exec = mysqli_query($con, $b2_cn_sql);
-$b2_cn = mysqli_fetch_array($b2_cn_exec, MYSQLI_ASSOC);
+// $b2_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'b2' AND language = 'cn'";
+// $b2_cn_exec = mysqli_query($con, $b2_cn_sql);
+// $b2_cn = mysqli_fetch_array($b2_cn_exec, MYSQLI_ASSOC);
 
-$c1_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'c1' AND language = 'cn'";
-$c1_cn_exec = mysqli_query($con, $c1_cn_sql);
-$c1_cn = mysqli_fetch_array($c1_cn_exec, MYSQLI_ASSOC);
+// $c1_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'c1' AND language = 'cn'";
+// $c1_cn_exec = mysqli_query($con, $c1_cn_sql);
+// $c1_cn = mysqli_fetch_array($c1_cn_exec, MYSQLI_ASSOC);
 
-$c2_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'c2' AND language = 'cn'";
-$c2_cn_exec = mysqli_query($con, $c2_cn_sql);
-$c2_cn = mysqli_fetch_array($c2_cn_exec, MYSQLI_ASSOC);
+// $c2_cn_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'c2' AND language = 'cn'";
+// $c2_cn_exec = mysqli_query($con, $c2_cn_sql);
+// $c2_cn = mysqli_fetch_array($c2_cn_exec, MYSQLI_ASSOC);
 
 
 //YL KEYS
-$kids_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'kids' AND language = 'ek'";
-$kids_en_exec = mysqli_query($con, $kids_en_sql);
-$kids_en = mysqli_fetch_array($kids_en_exec, MYSQLI_ASSOC);
+// $kids_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'kids' AND language = 'ek'";
+// $kids_en_exec = mysqli_query($con, $kids_en_sql);
+// $kids_en = mysqli_fetch_array($kids_en_exec, MYSQLI_ASSOC);
 
-$teens_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'teens' AND language = 'ek'";
-$teens_en_exec = mysqli_query($con, $teens_en_sql);
-$teens_en = mysqli_fetch_array($teens_en_exec, MYSQLI_ASSOC);
+// $teens_en_sql = "SELECT id, key_lg FROM keys_lg WHERE level = 'teens' AND language = 'ek'";
+// $teens_en_exec = mysqli_query($con, $teens_en_sql);
+// $teens_en = mysqli_fetch_array($teens_en_exec, MYSQLI_ASSOC);
 
 ?>
 
@@ -162,7 +161,7 @@ $teens_en = mysqli_fetch_array($teens_en_exec, MYSQLI_ASSOC);
                         </br>
                         <h4>Chave de segurança Teacher</h4>
                         </br>
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
+                        <!-- <form class="form-inline" action="assets/services/update_key.php" method="POST">
 
                         <div class="form-group col-2">
                                 <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Teacher">
@@ -172,244 +171,78 @@ $teens_en = mysqli_fetch_array($teens_en_exec, MYSQLI_ASSOC);
                                 <input type="text" class="form-control" name="key" value=<?php echo $teacher['key_lg']; ?>>
                             </div>
                             <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
+                        </form> -->
                     </div>
                     <div class="col-lg-6 panel-item">
-                        <h4>Chaves de segurança EN</h4>
+                        <h4>Postar no mural</h4>
                         </br>
+                        <form action="assets/services/save_post.php" method="POST"  enctype="multipart/form-data" >
+                        <div class="form-group">
+                            <input type="hidden" name="date" value='<?php echo date("Y-m-d") ?>' >
+                            <label for="exampleFormControlInput1">Texto (Digite // para pular de linha)</label>
+                            <!-- <input type="text" class="form-control" name="text" placeholder="Fale algo..."> -->
+                            <textarea class="form-control" name="text" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Youtube link</label>
+                            <input type="text" class="form-control" name="link" placeholder="Link do vídeo do YouTube">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Classe</label>
+                            <select class="form-control" id="class" name="class" required>
+                            <option value="">Selecione</option>
+                            <?php
+                                        
+                                $sql_classes = "SELECT id, name FROM class where role =0"; 
+                                $result_classes = mysqli_query($con, $sql_classes);
+                                while ($row_classes = mysqli_fetch_array($result_classes, MYSQLI_ASSOC)) 
+                                    {  
+                                        echo "<option value=".$row_classes['id'].">".$row_classes['name']."</option>";
+                                }
 
+                            ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Nome do arquivo</label>
+                            <input type="text" class="form-control" name="file_name" placeholder="Nome do arquivo">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Arquivo</label>
+                            <input type="file" class="form-control-file" name="my_file" id="my_file">
+                        </div>
 
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Imagem</label>
+                            <input type="file" class="form-control-file" name="image" id="image">
+                        </div>
 
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Áudio</label>
+                            <input type="file" class="form-control-file" name="audio" id="audio">
+                        </div>
 
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="A1">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $a1_en['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $a1_en['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
+                        <div >
+                        <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
+                        </div>
 
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="A2">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $a2_en['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $a2_en['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
-
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="B1">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $b1_en['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $b1_en['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
-
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="B2">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $b2_en['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $b2_en['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
-
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="C1">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $c1_en['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $c1_en['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
-
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="C2">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $c2_en['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $c2_en['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
                         
-
-                            <!-- <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="A1">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="text" class="form-control" id="inputPassword2"  value=<?php echo $a1_en['key_lg']; ?> >
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                            </br>
+                        </form>
 
 
-                            <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="A2">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="text" class="form-control" id="inputPassword2"  value=<?php echo $a2_en['key_lg']; ?> >
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                            </br>
-
-                            <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="B1">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="text" class="form-control" id="inputPassword2"  value=<?php echo $b1_en['key_lg']; ?> >
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                            </br>
-
-                            <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="B2">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="text" class="form-control" id="inputPassword2"  value=<?php echo $b2_en['key_lg']; ?> >
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                            </br>
-
-                            <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="C1">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="text" class="form-control" id="inputPassword2"  value=<?php echo $c1_en['key_lg']; ?> >
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                            </br>
-
-                            <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="C2">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="text" class="form-control" id="inputPassword2"  value=<?php echo $c2_en['key_lg']; ?> >
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button> -->
+                        
                             </br>
                             </br>
 
                             <h4>Chaves de segurança CH</h4>
                         </br>
 
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="A1">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $a1_cn['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $a1_cn['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
-
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="A2">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $a2_cn['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $a2_cn['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
-
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="B1">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $b1_cn['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $b1_cn['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
-
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="B2">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $b2_cn['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $b2_cn['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
-
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="C1">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $c1_cn['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $c1_cn['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
-
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="C2">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $c2_cn['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $c2_cn['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
+                        
 </br>
                         <h4>Chaves de segurança YL</h4>
                         </br>
 
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Kids">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $kids_en['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $kids_en['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
-
-                        <form class="form-inline" action="assets/services/update_key.php" method="POST">
-
-                        <div class="form-group col-2">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Teens">
-                            </div>
-                            <div class="form-group col-8">
-                                <input type="hidden" name="id" value=<?php echo $teens_en['id']; ?>> 
-                                <input type="text" class="form-control" name="key" value=<?php echo $teens_en['key_lg']; ?>>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-2">Salvar</button>
-                        </form>
+                        
 
     
             </div>
