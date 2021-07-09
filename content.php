@@ -52,7 +52,11 @@ $select_query = "SELECT * FROM files WHERE language = '".$language."' AND range_
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a class="js-scroll-trigger" href="#">Menu</a></li>
-                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="portal.php">Níveis</a></li>
+                <?php if($_SESSION['language']!='ek'){ ?>
+                    <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="portal.php">Níveis</a></li>
+                <?php }else{ ?>
+                    <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="portalkid.php">Níveis</a></li>
+                <?php } ?>
                 <?php if($_SESSION['reference']=='teacher'){ ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="panel.php">Painel</a></li>
                 <?php } ?>

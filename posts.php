@@ -49,7 +49,11 @@ $select_query = "SELECT * FROM mural WHERE class = ".$class." ORDER BY ID DESC";
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a class="js-scroll-trigger" href="#">Menu</a></li>
-                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="portal.php">Níveis</a></li>
+                <?php if($_SESSION['language']!='ek'){ ?>
+                    <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="portal.php">Níveis</a></li>
+                <?php }else{ ?>
+                    <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="portalkid.php">Níveis</a></li>
+                <?php } ?>
                 <?php if($_SESSION['reference']=='teacher'){ ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="panel.php">Painel</a></li>
                 <?php } ?>
@@ -80,7 +84,7 @@ $select_query = "SELECT * FROM mural WHERE class = ".$class." ORDER BY ID DESC";
                         echo $text;
                         if(!empty($row['link'])){
                             echo "</br></br>";
-                            echo "<iframe width='560' height='315' src='".$link."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+                            echo "<iframe width='350' src='".$link."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
                         }
                         if(!empty($row['audio'])){
                             echo "</br></br> Áudio:</br>";
@@ -88,7 +92,7 @@ $select_query = "SELECT * FROM mural WHERE class = ".$class." ORDER BY ID DESC";
                         }
                         if(!empty($row['image'])){
                         echo "</br></br>";
-                        echo "<img src='".$row['image']."' width='560px'>";
+                        echo "<a href='".$row['image']."' target='_blank'><img src='".$row['image']."' width='200px'></a>";
                         }
                         if(!empty($row['file'])){
                         echo "</br></br>";
