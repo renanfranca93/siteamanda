@@ -8,14 +8,13 @@ if (!$_SESSION["language"]) {
 }
 
 
-$language = $_SESSION["language"];
-$range_access = $_SESSION["range"];
-$range = $_GET["range"];
-if($range>$range_access){
-    header("Location: portal.php"); 
-}
+$class = $_SESSION["class"];
 
-$select_query = "SELECT * FROM files WHERE language = '".$language."' AND range_lg = ".$range." ORDER BY name ASC";
+
+if($_SESSION['role']==1){
+    $select_query = "SELECT * FROM mural ORDER BY ID DESC LIMIT 30";
+}
+else $select_query = "SELECT * FROM mural WHERE class = ".$class." ORDER BY date DESC";
 // echo $select_query;
 
     $executed = mysqli_query($con, $select_query);
@@ -69,15 +68,47 @@ $select_query = "SELECT * FROM files WHERE language = '".$language."' AND range_
                 <div class="row no-gutters contentFinal">
                 
                 <ul>
-                <h3>Aulas</h3>
+                <h3>Mural</h3>
 
                 <?php 
                     while ($row = mysqli_fetch_array($executed, MYSQLI_ASSOC)) {
+                        // if($_SESSION['role']==1){
+                        //     echo "<li><a target='new' href='".$row['text']."'>".$row['name']."</a> - <a onClick=\"javascript: return confirm('Confirma a exclusão?');\" href='assets/services/delete_file.php?id=".$row['id']."'>Excluir</a></li>";    
+                        // }else{
+                        //     echo "<li><a target='new' href='".$row['text']."'>".$row['name']."</a> </li>";
+                        // }
+
+                        $link = str_replace("youtu.be","youtube.com/embed",$row['link']);
+                        $text = str_replace("//","</br>",$row['text']);
+
+                        echo "<strong> Post ".date("d/m/Y", strtotime($row['date']))." </strong> ";
                         if($_SESSION['role']==1){
-                            echo "<li><a target='new' href='".$row['file']."'>".$row['name']."</a> - <a onClick=\"javascript: return confirm('Confirma a exclusão?');\" href='assets/services/delete_file.php?id=".$row['id']."'><i class='fa fa-trash' aria-hidden='true'></i></a></li>";    
-                        }else{
-                            echo "<li><a target='new' href='".$row['file']."'>".$row['name']."</a> </li>";
+
+                            $resClass = mysqli_query($con,"SELECT * FROM class WHERE id = ".$row['class']);
+                            $rowClass = mysqli_fetch_array($resClass, MYSQLI_ASSOC);
+                            echo " - ".$rowClass['name']." ";
+                            echo "<a onClick=\"javascript: return confirm('Confirma a exclusão?');\" href='assets/services/delete_post.php?id=".$row['id']."'><i class='fa fa-trash' aria-hidden='true'></i></a>";
                         }
+                        
+                        echo "</br>";
+                        echo $text;
+                        if(!empty($row['link'])){
+                            echo "</br></br>";
+                            echo "<iframe width='350' src='".$link."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+                        }
+                        if(!empty($row['audio'])){
+                            echo "</br></br> Áudio:</br>";
+                            echo "<audio controls><source src='".$row['audio']."' type='audio/mpeg'></audio>";
+                        }
+                        if(!empty($row['image'])){
+                        echo "</br></br>";
+                        echo "<a href='".$row['image']."' target='_blank'><img src='".$row['image']."' width='200px'></a>";
+                        }
+                        if(!empty($row['file'])){
+                        echo "</br></br>";
+                        echo "<a href='".$row['file']."'>Baixar ".$row['file_name']."</a>";
+                        }
+                        echo "<hr>";
                         
                     }
                 

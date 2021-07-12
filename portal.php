@@ -43,7 +43,7 @@ $range = $_SESSION["range"];
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a class="js-scroll-trigger" href="#">Menu</a></li>
-                <?php if($_SESSION['reference']=='teacher'){ ?>
+                <?php if($_SESSION['role']==1){ ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="panel.php">Painel</a></li>
                 <?php } ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="index.php">Sair</a></li>
@@ -53,6 +53,16 @@ $range = $_SESSION["range"];
         <section class="content-section" id="portfolio">
             <div class="container">
                 <div class="row no-gutters">
+                    <div class="col-lg-4">
+                        <a class="portfolio-item" href="posts.php">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <div class="h2">MURAL</div>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/level-bg<?php echo "-".$_SESSION['language']; ?>.png" alt="..." />
+                        </a>
+                    </div>
                     <div class="col-lg-4">
                         <a class="portfolio-item" href="content.php?range=1">
                             <div class="caption">
@@ -75,7 +85,9 @@ $range = $_SESSION["range"];
                         </a>
                     </div>
                     <?php } if($range>=3) { ?>
-                    <div class="col-lg-4">
+            </div>
+            <div class="row no-gutters">
+            <div class="col-lg-4">
                         <a class="portfolio-item" href="content.php?range=3">
                             <div class="caption">
                                 <div class="caption-content">
@@ -86,8 +98,6 @@ $range = $_SESSION["range"];
                         </a>
                     </div>
                     <?php } if($range>=4) { ?>
-            </div>
-            <div class="row no-gutters">
                     <div class="col-lg-4">
                         <a class="portfolio-item" href="content.php?range=4">
                             <div class="caption">
@@ -109,7 +119,7 @@ $range = $_SESSION["range"];
                             <img class="img-fluid" src="assets/img/level-bg<?php echo "-".$_SESSION['language']; ?>.png" alt="..." />
                         </a>
                     </div>
-                    <?php } if($range>=6) { ?>
+                    <!-- <?php// } if($range>=6) { ?>
                     <div class="col-lg-4">
                         <a class="portfolio-item" href="content.php?range=6">
                             <div class="caption">
@@ -117,10 +127,10 @@ $range = $_SESSION["range"];
                                     <div class="h2">C2</div>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/level-bg<?php echo "-".$_SESSION['language']; ?>.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/level-bg<?php //echo "-".$_SESSION['language']; ?>.png" alt="..." />
                         </a>
-                    </div>
-                    <?php } ?>
+                    </div>-->
+                    <?php } ?> 
             </div>
         </section>
         <!-- Footer-->

@@ -43,7 +43,7 @@ $range = $_SESSION["range"];
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a class="js-scroll-trigger" href="#">Menu</a></li>
-                <?php if($_SESSION['reference']=='teacher'){ ?>
+                <?php if($_SESSION['role']==1){ ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="panel.php">Painel</a></li>
                 <?php } ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="index.php">Sair</a></li>
@@ -53,7 +53,17 @@ $range = $_SESSION["range"];
         <section class="content-section" id="portfolio">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
+                        <a class="portfolio-item" href="posts.php">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <div class="h2">MURAL</div>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/level-bg-en.png" alt="..." />
+                        </a>
+                    </div>
+                    <div class="col-lg-4">
                         <a class="portfolio-item" href="content.php?range=1">
                             <div class="caption">
                                 <div class="caption-content">
@@ -64,7 +74,7 @@ $range = $_SESSION["range"];
                         </a>
                     </div>
                     <?php if($range>=2) { ?>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <a class="portfolio-item" href="content.php?range=2">
                             <div class="caption">
                                 <div class="caption-content">
