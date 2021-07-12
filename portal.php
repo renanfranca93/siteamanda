@@ -60,7 +60,7 @@ $range = $_SESSION["range"];
                                     <div class="h2">MURAL</div>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/level-bg<?php echo "-".$_SESSION['language']; ?>.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/mural-bg<?php echo "-".$_SESSION['language']; ?>.jpeg" alt="..." />
                         </a>
                     </div>
                     <div class="col-lg-4">
