@@ -57,7 +57,7 @@ $select_query = "SELECT * FROM files WHERE language = '".$language."' AND range_
                 <?php }else{ ?>
                     <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="portalkid.php">Níveis</a></li>
                 <?php } ?>
-                <?php if($_SESSION['reference']=='teacher'){ ?>
+                <?php if($_SESSION['role']==1){ ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="panel.php">Painel</a></li>
                 <?php } ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="index.php">Sair</a></li>
@@ -73,8 +73,8 @@ $select_query = "SELECT * FROM files WHERE language = '".$language."' AND range_
 
                 <?php 
                     while ($row = mysqli_fetch_array($executed, MYSQLI_ASSOC)) {
-                        if($_SESSION['reference']=='teacher'){
-                            echo "<li><a target='new' href='".$row['file']."'>".$row['name']."</a> - <a onClick=\"javascript: return confirm('Confirma a exclusão?');\" href='assets/services/delete_file.php?id=".$row['id']."'>Excluir</a></li>";    
+                        if($_SESSION['role']==1){
+                            echo "<li><a target='new' href='".$row['file']."'>".$row['name']."</a> - <a onClick=\"javascript: return confirm('Confirma a exclusão?');\" href='assets/services/delete_file.php?id=".$row['id']."'><i class='fa fa-trash' aria-hidden='true'></i></a></li>";    
                         }else{
                             echo "<li><a target='new' href='".$row['file']."'>".$row['name']."</a> </li>";
                         }

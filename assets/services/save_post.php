@@ -23,7 +23,7 @@ if (($_FILES['my_file']['name']!="")){
 // Check if file already exists
 if (file_exists($path_filename_ext)) {
 //  echo "Sorry, file already exists.";
-    header("Location: panel.php"); 
+    header("Location: ../../panel.php"); 
  }else{
  move_uploaded_file($temp_name,$path_filename_ext);
 //  echo "Congratulations! File Uploaded Successfully.";
@@ -40,12 +40,12 @@ if (($_FILES['image']['name']!="")){
     $temp_name_image = $_FILES['image']['tmp_name'];
     $path_filename_ext_image = "../../".$target_dir_image.$filename_image.".".$ext_image;
     $finalpath_image = $target_dir_image.$filename_image.".".$ext_image;
-    echo $path_filename_ext_image;
+    // echo $path_filename_ext_image;
     
    // Check if file already exists
    if (file_exists($path_filename_ext_image)) {
    //  echo "Sorry, file already exists.";
-       header("Location: panel.php"); 
+       header("Location: ../../panel.php"); 
     }else{
     move_uploaded_file($temp_name_image,$path_filename_ext_image);
    //  echo "Congratulations! File Uploaded Successfully.";
@@ -68,7 +68,7 @@ if (($_FILES['image']['name']!="")){
    // Check if file already exists
    if (file_exists($path_filename_ext_audio)) {
    //  echo "Sorry, file already exists.";
-       header("Location: panel.php"); 
+       header("Location: ../../panel.php"); 
     }else{
     move_uploaded_file($temp_name_audio,$path_filename_ext_audio);
    //  echo "Congratulations! File Uploaded Successfully.";

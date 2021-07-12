@@ -43,7 +43,7 @@ $range = $_SESSION["range"];
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a class="js-scroll-trigger" href="#">Menu</a></li>
-                <?php if($_SESSION['reference']=='teacher'){ ?>
+                <?php if($_SESSION['role']==1){ ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="panel.php">Painel</a></li>
                 <?php } ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="index.php">Sair</a></li>

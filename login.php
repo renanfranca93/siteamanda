@@ -5,7 +5,7 @@ $msg="";
 
 if(isset($_POST['username'])){
 
-    $select_query = "SELECT * FROM class WHERE username = '".$_POST['username']."'";
+    $select_query = "SELECT * FROM class WHERE username = '".$_POST['username']."' and status=1";
 
     $executed = mysqli_query($con, $select_query);
 

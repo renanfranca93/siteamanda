@@ -11,8 +11,10 @@ if (!$_SESSION["language"]) {
 $class = $_SESSION["class"];
 
 
-
-$select_query = "SELECT * FROM mural WHERE class = ".$class." ORDER BY ID DESC";
+if($_SESSION['role']==1){
+    $select_query = "SELECT * FROM mural ORDER BY ID DESC LIMIT 30";
+}
+else $select_query = "SELECT * FROM mural WHERE class = ".$class." ORDER BY date DESC";
 // echo $select_query;
 
     $executed = mysqli_query($con, $select_query);
@@ -54,7 +56,7 @@ $select_query = "SELECT * FROM mural WHERE class = ".$class." ORDER BY ID DESC";
                 <?php }else{ ?>
                     <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="portalkid.php">Níveis</a></li>
                 <?php } ?>
-                <?php if($_SESSION['reference']=='teacher'){ ?>
+                <?php if($_SESSION['role']==1){ ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="panel.php">Painel</a></li>
                 <?php } ?>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="index.php">Sair</a></li>
@@ -79,7 +81,15 @@ $select_query = "SELECT * FROM mural WHERE class = ".$class." ORDER BY ID DESC";
                         $link = str_replace("youtu.be","youtube.com/embed",$row['link']);
                         $text = str_replace("//","</br>",$row['text']);
 
-                        echo "<strong> Post ".date("d/m/Y", strtotime($row['date']))." </strong>";
+                        echo "<strong> Post ".date("d/m/Y", strtotime($row['date']))." </strong> ";
+                        if($_SESSION['role']==1){
+
+                            $resClass = mysqli_query($con,"SELECT * FROM class WHERE id = ".$row['class']);
+                            $rowClass = mysqli_fetch_array($resClass, MYSQLI_ASSOC);
+                            echo " - ".$rowClass['name']." ";
+                            echo "<a onClick=\"javascript: return confirm('Confirma a exclusão?');\" href='assets/services/delete_post.php?id=".$row['id']."'><i class='fa fa-trash' aria-hidden='true'></i></a>";
+                        }
+                        
                         echo "</br>";
                         echo $text;
                         if(!empty($row['link'])){
